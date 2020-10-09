@@ -1,0 +1,14 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class RaizQuadrada{
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        System.out.printf("%.4f\n",Math.sqrt(n));
+
+    }
+}
