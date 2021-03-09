@@ -1,0 +1,42 @@
+Determining if files usbhid.h exist failed with the following output:
+Change Dir: /home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_533e8/fast && /usr/bin/make -f CMakeFiles/cmTC_533e8.dir/build.make CMakeFiles/cmTC_533e8.dir/build
+make[1]: Entering directory '/home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_533e8.dir/HAVE_USBHID_H.c.o
+/usr/bin/cc   -Wall -pedantic    -o CMakeFiles/cmTC_533e8.dir/HAVE_USBHID_H.c.o   -c /home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CheckIncludeFiles/HAVE_USBHID_H.c
+/home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CheckIncludeFiles/HAVE_USBHID_H.c:2:10: fatal error: usbhid.h: No such file or directory
+    2 | #include <usbhid.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_533e8.dir/build.make:66: CMakeFiles/cmTC_533e8.dir/HAVE_USBHID_H.c.o] Error 1
+make[1]: Leaving directory '/home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_533e8/fast] Error 2
+
+
+Source:
+/* */
+#include <usbhid.h>
+
+
+int main(void){return 0;}
+
+Determining if the function XParseGeometry exists failed with the following output:
+Change Dir: /home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a69ef/fast && /usr/bin/make -f CMakeFiles/cmTC_a69ef.dir/build.make CMakeFiles/cmTC_a69ef.dir/build
+make[1]: Entering directory '/home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a69ef.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -pedantic -DCHECK_FUNCTION_EXISTS=XParseGeometry   -o CMakeFiles/cmTC_a69ef.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a69ef
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a69ef.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall -pedantic -DCHECK_FUNCTION_EXISTS=XParseGeometry    -rdynamic CMakeFiles/cmTC_a69ef.dir/CheckFunctionExists.c.o  -o cmTC_a69ef  -lm 
+/usr/bin/ld: CMakeFiles/cmTC_a69ef.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x14): undefined reference to `XParseGeometry'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a69ef.dir/build.make:87: cmTC_a69ef] Error 1
+make[1]: Leaving directory '/home/marco/Desktop/UFAM/LPAV/freeglut-3.2.1/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_a69ef/fast] Error 2
+
+
+

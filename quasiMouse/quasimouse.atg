@@ -1,0 +1,276 @@
+import java.lang.*;
+import java.io.*;
+
+COMPILER quasiMouse
+
+private Tab ts;
+
+private Obj ofuncAtual;
+
+private Code objCode;
+
+CHARACTERS
+	semAspas 	= ANY - '"'.
+	letra 		= "ABCDEFGHIJKLMNOPQRSTUVWXYZ".
+	digito 		= "0123456789".
+
+TOKENS
+	id 		    = letra.
+	strConst 	= '"' {semAspas} '"'.
+	num 		= digito { digito } .
+
+COMMENTS FROM "~" TO '\n'
+
+IGNORE '\r' + '\n' + '\t'
+
+PRODUCTIONS
+
+//******************************************************************************************************************************* */
+
+  quasiMouse      (.  
+                      ofuncAtual = null; 
+                      ts = new Tab(this);
+                      ts.abrirEscopo("Global");
+                      objCode = new Code();
+                      int opr = -1; 
+                  .)
+  
+  
+  = {
+    
+    DeclFuncao  
+    
+    }             (. 
+                     ts.abrirEscopo("main");
+                     objCode.setMainPC();
+                     objCode.put(objCode.enter);
+                     objCode.put(0);
+                     objCode.put(26);
+                  .)  
+
+    Instrucao<out opr> 
+    
+    {
+    
+    Instrucao <out opr>
+    
+    } 
+    
+    "$"           (.
+                    objCode.put(objCode.return_);
+                    objCode.put(objCode.exit);
+                    ts.fecharEscopo(); //main
+                    objCode.setDataSize(ts.escopoAtual.nVars);
+                    ts.fecharEscopo(); //global
+                  .)
+    
+    .
+
+//******************************************************************************************************************************* */  
+  
+  DeclFuncao = "$" id         (.
+                                ofuncAtual = ts.inserir(Obj.Func, t.val, Tab.semTipo);
+                                ts.abrirEscopo("Func  " + t.val);
+                                int opr = -1;
+                            .)
+    {
+      "," id                   (. 
+                                ts.inserir(Obj.Var, t.val, Tab.tipoInt);
+                                ofuncAtual.nPars ++; 
+                            .)
+
+    } ";"                     (.  
+                                ofuncAtual.end = objCode.getPC();
+                                objCode.put(objCode.enter);
+                                objCode.put(ofuncAtual.nPars);
+                                objCode.put(26);
+                            .)
+            
+    {Instrucao<out opr>}
+    
+    "@"                       (.
+                                objCode.put(objCode.exit);
+                                objCode.put(objCode.return_);
+                                ofuncAtual.locais = ts.escopoAtual.locais;
+                                ts.fecharEscopo();
+                            .)                 
+  . 
+
+//******************************************************************************************************************************* */
+
+  Instrucao<out int opr> (. opr = -1; .)
+    =             FunCall 
+                | Assinalamento  
+                | Bloco <out opr>
+                | Printf 
+                | Scanf
+                | While
+                | OpAri
+  .
+  
+//******************************************************************************************************************************* */
+
+  Assinalamento = 
+  id                      (. Obj n = ts.buscar(t.val);
+                         .)
+  (
+    "."                   (.
+                            objCode.load(new Operand(n)); 
+                         .)
+    | 
+    ":"                   (.
+                            Obj ops = Tab.semObj;
+                            for( Obj aux = Tab.escopoAtual.locais; aux != null; aux = aux.prox){
+                              if(aux.nome.equals(n.nome)){
+                                ops = aux;
+                                break;
+                              }
+                            }
+                            if(ops == Tab.semObj) ops = ts.inserir(Obj.Var, n.nome, Tab.tipoInt);
+                            objCode.store(new Operand(ops));
+                         .)
+  ) 
+    | 
+  num                     (.
+                           objCode.load(new Operand(Integer.parseInt(t.val))); 
+                         .)
+  .
+
+//******************************************************************************************************************************* */
+
+  Bloco<out int opr>          (.
+                                int nOpr = -1;
+                                opr = objCode.eq;
+                             .)
+  = OpRel<out opr>        
+  [
+    "["                       (. 
+                                int n_end = objCode.putFalseJump(opr,0); 
+                             .)                    
+    {
+      Instrucao <out nOpr> 
+    }
+
+    ( 
+      "|"                     (. 
+                                int n_end2 = objCode.putJump(0); 
+                                objCode.fixup(n_end); 
+                             .)
+      {
+        Instrucao <out nOpr>
+      }                       (. 
+                                objCode.fixup(n_end2); 
+                             .)
+      |                       (. 
+                              objCode.fixup(n_end); 
+                             .)
+    )
+      "]"
+  ]
+  . 
+
+  //******************************************************************************************************************************* */
+
+  While =                     (. 
+                                int opr, end; 
+                             .)
+  "("                         (. 
+                                int head = objCode.getPC(); 
+                             .)
+  Instrucao <out opr> 
+  {
+    Instrucao <out opr> 
+  } 
+  "^"                         (. 
+                                end = objCode.putFalseJump(opr, 0); 
+                             .)                  
+  (
+    Instrucao <out opr>               
+    {Instrucao <out opr>}             
+    |
+  )
+  ")"                         (. 
+                                objCode.putJump(head); 
+                                objCode.fixup(end); 
+                              .)
+  .
+
+  //******************************************************************************************************************************* */
+  
+  Printf = 
+  strConst                (. 
+                            objCode.putPrintStrz(t.val.substring(1,t.val.length()-1)); 
+                          .)
+  | "!"                   (. 
+                            objCode.put(objCode.printi); 
+                          .)
+  | "&"                   (. 
+                            objCode.putPrintStrz("\n"); 
+                          .)
+  .
+
+  //******************************************************************************************************************************* */
+
+  Scanf = 
+  "?"                     (. 
+                            objCode.put(objCode.scani); 
+                          .)
+  .
+
+  //******************************************************************************************************************************* */
+  
+  FunCall = "#" id        (.
+                            Obj ops = ts.buscar(t.val);
+                            objCode.put(objCode.call);
+                            objCode.put2(ops.end);
+                            ops.cat = Operand.Stack;
+                          .)
+  .
+  //******************************************************************************************************************************* */
+
+  OpRel<out int opr>      (. 
+                             opr = -1; 
+                          .)
+                          
+  =
+  
+  "="                     (. 	
+                            opr = objCode.eq; 
+                          .)
+  | 
+  ">"                     (.
+                            opr = objCode.gt; 
+                          .)
+  | 
+  "<"                     (. 	
+                            opr = objCode.lt; 
+                          .)
+  .
+  
+  //******************************************************************************************************************************* */
+
+  OpAri = 
+  "+"                     (. 
+                            objCode.put(objCode.add); 
+                          .)
+  | 
+  "-"                     (. 
+                            objCode.put(objCode.sub);
+                          .)
+  | 
+  "/"                     (. 
+                            objCode.put(objCode.div); 
+                          .)
+  | 
+  "*"                     (. 
+                            objCode.put(objCode.mul); 
+                          .)
+  | 
+  "%"                     (. 
+                            objCode.put(objCode.rem); 
+                          .)
+  .
+
+  //******************************************************************************************************************************* */
+
+END quasiMouse. 

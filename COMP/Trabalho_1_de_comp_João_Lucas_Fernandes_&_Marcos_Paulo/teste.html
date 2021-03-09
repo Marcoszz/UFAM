@@ -1,0 +1,1827 @@
+<html>
+<head><title>Trabalho 1 de compiladores</title>
+<link rel=stylesheet href=styles.css></head><body>
+<span class=comments>
+/*comparacaodemetodosdeordenacao, Marco, 2014*/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+algoritmo</span>
+ ComparacaoDeAlgoritmosOrdenacao
+</span>
+<br>
+<br>
+<span>
+<span class=constante>
+constante</span>
+ TAM <span class=op>
+=</span>
+ <span class=numeros>
+10</span>
+;<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+imprime</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+)</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+i</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ para </span>
+  i<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+ ate  <span class=funcao>
+ tamanho</span>
+( v)<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+<span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+( v[ i], <span class=string>
+" "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimpara</span>
+;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+copia</span>
+( <span class=definidos>
+v1</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+v2</span>
+:<span class=tipos>
+inteiro[]</span>
+)</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+i</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ para </span>
+  i<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+ ate  (  <span class=funcao>
+ tamanho</span>
+( v1)<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+)<span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v1[ i]<span class=op>
+ = </span>
+  v2[ i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimpara</span>
+;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+troque</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+i</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+j</span>
+:<span class=tipos>
+inteiro</span>
+)</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+tmp</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; tmp<span class=op>
+ = </span>
+  v[ i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; v[ i]<span class=op>
+ = </span>
+  v[ j];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; v[ j]<span class=op>
+ = </span>
+  tmp;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span class=comments>
+/*****bolha*******/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+bolha</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+custo</span>
+, <span class=definidos>
+i</span>
+, <span class=definidos>
+troca</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; troca<span class=op>
+ = </span>
+ <span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+  troca <span class=op>
+==</span>
+ <span class=numeros>
+1</span>
+ <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; troca<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ para </span>
+  i<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+ ate  <span class=funcao>
+ tamanho</span>
+( v)<span class=op>
+ - </span>
+<span class=numeros>
+2</span>
+<span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+  custo<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  v[ i] <span class=op>
+></span>
+  v[ i<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+] <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ troque</span>
+( v,  i,  i<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; troca<span class=op>
+ = </span>
+ <span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+  custo;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span class=comments>
+/*****selecao*******/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+minpos</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+i</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+f</span>
+:<span class=tipos>
+inteiro</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+j</span>
+, <span class=definidos>
+min</span>
+, <span class=definidos>
+minj</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; min<span class=op>
+ = </span>
+  v[ i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; minj<span class=op>
+ = </span>
+  i;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ para </span>
+  j<span class=op>
+ = </span>
+  i<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+ ate   f<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+<span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  v[ j] <span class=op>
+<</span>
+  min <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; min<span class=op>
+ = </span>
+  v[ j];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minj<span class=op>
+ = </span>
+  j;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+  minj;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+selecao</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+i</span>
+, <span class=definidos>
+minp</span>
+, <span class=definidos>
+custo</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ para </span>
+  i<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+ ate  <span class=funcao>
+ tamanho</span>
+( v)<span class=op>
+ - </span>
+<span class=numeros>
+2</span>
+<span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+  custo<span class=op>
+ + </span>
+<span class=funcao>
+ tamanho</span>
+( v)<span class=op>
+ - </span>
+ i<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minp<span class=op>
+ = </span>
+ <span class=funcao>
+ minpos</span>
+( v,  i<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+, <span class=funcao>
+ tamanho</span>
+( v));</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  v[ i] <span class=op>
+></span>
+  v[ minp] <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ troque</span>
+( v,  i,  minp);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+  custo;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span class=comments>
+/*****insercao*******/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+jMaior0EauxMenorVjmenos1</span>
+( <span class=definidos>
+j</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+aux</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  j <span class=op>
+></span>
+ <span class=numeros>
+0</span>
+ <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  aux <span class=op>
+<</span>
+  v[ j<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+] <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+ <span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+insercao</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+i</span>
+, <span class=definidos>
+j</span>
+, <span class=definidos>
+custo</span>
+, <span class=definidos>
+aux</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ para </span>
+  i<span class=op>
+ = </span>
+ <span class=numeros>
+1</span>
+ ate  <span class=funcao>
+ tamanho</span>
+( v)<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+<span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aux<span class=op>
+ = </span>
+  v[ i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j<span class=op>
+ = </span>
+  i;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+ <span class=funcao>
+ jMaior0EauxMenorVjmenos1</span>
+( j,  aux,  v) <span class=op>
+==</span>
+ <span class=numeros>
+1</span>
+ <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+  custo<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v[ j]<span class=op>
+ = </span>
+  v[ j<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j<span class=op>
+ = </span>
+  j<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v[ j]<span class=op>
+ = </span>
+  aux;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+  custo;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span class=comments>
+/****mergesort****/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+esqMEfimEsqEmeioMEdir</span>
+( <span class=definidos>
+esq</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+fimEsq</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+meio</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+dir</span>
+:<span class=tipos>
+inteiro</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  esq <span class=op>
+<=</span>
+  fimEsq <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  meio <span class=op>
+<=</span>
+  dir <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+ <span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+merge</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+tmp</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+esq</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+meio</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+dir</span>
+:<span class=tipos>
+inteiro</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+i</span>
+, <span class=definidos>
+fimEsq</span>
+, <span class=definidos>
+tam</span>
+, <span class=definidos>
+k</span>
+, <span class=definidos>
+custo</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; fimEsq<span class=op>
+ = </span>
+  meio<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; k<span class=op>
+ = </span>
+  esq;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; tam<span class=op>
+ = </span>
+  dir<span class=op>
+ - </span>
+ esq<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+ <span class=funcao>
+ esqMEfimEsqEmeioMEdir</span>
+( esq,  fimEsq,  meio,  dir) <span class=op>
+==</span>
+ <span class=numeros>
+1</span>
+ <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+  custo<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  v[ esq] <span class=op>
+<=</span>
+  v[ meio] <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmp[ k]<span class=op>
+ = </span>
+  v[ esq];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esq<span class=op>
+ = </span>
+  esq<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ senao </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmp[ k]<span class=op>
+ = </span>
+  v[ meio];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; meio<span class=op>
+ = </span>
+  meio<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k<span class=op>
+ = </span>
+  k<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+  esq <span class=op>
+<=</span>
+  fimEsq <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmp[ k]<span class=op>
+ = </span>
+  v[ esq];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esq<span class=op>
+ = </span>
+  esq<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k<span class=op>
+ = </span>
+  k<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+  custo<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+  meio <span class=op>
+<=</span>
+  dir <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tmp[ k]<span class=op>
+ = </span>
+  v[ meio];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; meio<span class=op>
+ = </span>
+  meio<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; k<span class=op>
+ = </span>
+  k<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+  custo<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ para </span>
+  i<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+ ate   tam<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+<span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v[ dir]<span class=op>
+ = </span>
+  tmp[ dir];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dir<span class=op>
+ = </span>
+  dir<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+  custo<span class=op>
+ + </span>
+<span class=numeros>
+3</span>
+;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+msort</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+tmp</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+esq</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+dir</span>
+:<span class=tipos>
+inteiro</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+meio</span>
+, <span class=definidos>
+custo</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  dir <span class=op>
+></span>
+  esq <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; meio<span class=op>
+ = </span>
+ (   dir<span class=op>
+ + </span>
+ esq)<span class=op>
+ / </span>
+<span class=numeros>
+2</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ msort</span>
+( v,  tmp,  esq,  meio);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ msort</span>
+( v,  tmp,  meio<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+,  dir);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+  custo<span class=op>
+ + </span>
+<span class=funcao>
+ merge</span>
+( v,  tmp,  esq,  meio<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+,  dir);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+  custo;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+mergesort</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+tmp</span>
+: <span class=tipos>
+inteiro[]</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; tmp<span class=op>
+ = </span>
+<span class=instrucoes>
+novo</span>
+<span class=instrucoes>
+inteiro</span>
+[<span class=funcao>
+ tamanho</span>
+( v)];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+ <span class=funcao>
+ msort</span>
+( v,  tmp, <span class=numeros>
+0</span>
+, <span class=funcao>
+ tamanho</span>
+( v)<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+);</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span class=comments>
+/****quicksort****/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+custoq</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+iMenorFimEviMenorPivo</span>
+( <span class=definidos>
+i</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+vfim</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+pivo</span>
+:<span class=tipos>
+inteiro</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  i <span class=op>
+<</span>
+  vfim <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  v[ i] <span class=op>
+<</span>
+  pivo <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+ <span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span class=comments>
+/*particione*/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+particione</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+ini</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+vfim</span>
+:<span class=tipos>
+inteiro</span>
+): <span class=tipos>
+inteiro</span>
+</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+i</span>
+, <span class=definidos>
+j</span>
+, <span class=definidos>
+pivo</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; i<span class=op>
+ = </span>
+  ini<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; j<span class=op>
+ = </span>
+  vfim;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; pivo<span class=op>
+ = </span>
+  v[ ini];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+  i <span class=op>
+<=</span>
+  j <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+ <span class=funcao>
+ iMenorFimEviMenorPivo</span>
+( i,  vfim,  v,  pivo) <span class=op>
+==</span>
+ <span class=numeros>
+1</span>
+ <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i<span class=op>
+ = </span>
+  i<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custoq<span class=op>
+ = </span>
+  custoq<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ enquanto </span>
+  v[ j] <span class=op>
+></span>
+  pivo <span class=instrucoes>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j<span class=op>
+ = </span>
+  j<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custoq<span class=op>
+ = </span>
+  custoq<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; custoq<span class=op>
+ = </span>
+  custoq<span class=op>
+ + </span>
+<span class=numeros>
+2</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  i <span class=op>
+<</span>
+  j <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ troque</span>
+( v,  i,  j);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i<span class=op>
+ = </span>
+  i<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; j<span class=op>
+ = </span>
+  j<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ senao </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i<span class=op>
+ = </span>
+  i<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ troque</span>
+( v,  j,  ini);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+  j;</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span class=comments>
+/*quicksort*/ 
+</span>
+<br>
+<br>
+<span>
+<span class=instrucoes>
+procedimento</span>
+ <span class=funcao>
+quicksort</span>
+( <span class=definidos>
+v</span>
+:<span class=tipos>
+inteiro[]</span>
+, <span class=definidos>
+ini</span>
+:<span class=tipos>
+inteiro</span>
+, <span class=definidos>
+vfim</span>
+:<span class=tipos>
+inteiro</span>
+)</span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+ (   vfim<span class=op>
+ - </span>
+ ini) <span class=op>
+<</span>
+ <span class=numeros>
+1</span>
+ <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+retorne</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+p</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; p<span class=op>
+ = </span>
+ <span class=funcao>
+ particione</span>
+( v,  ini,  vfim);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  ini <span class=op>
+<</span>
+ (   p<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+) <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ quicksort</span>
+( v,  ini,  p<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+se</span>
+  vfim <span class=op>
+></span>
+ (   p<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+) <span class=instrucoes>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ quicksort</span>
+( v,  p<span class=op>
+ + </span>
+<span class=numeros>
+1</span>
+,  vfim);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+ fimse </span>
+</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br><span>
+<span class=instrucoes>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+custo</span>
+, <span class=definidos>
+i</span>
+: <span class=tipos>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+variavel</span>
+ <span class=definidos>
+v</span>
+, <span class=definidos>
+v2</span>
+: <span class=tipos>
+inteiro[]</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; v<span class=op>
+ = </span>
+<span class=instrucoes>
+novo</span>
+<span class=instrucoes>
+inteiro</span>
+{<span class=numeros>
+61</span>
+, <span class=numeros>
+57</span>
+, <span class=numeros>
+72</span>
+, <span class=numeros>
+18</span>
+, <span class=numeros>
+8</span>
+, <span class=numeros>
+30</span>
+, <span class=numeros>
+21</span>
+, <span class=numeros>
+93</span>
+, <span class=numeros>
+67</span>
+, <span class=numeros>
+15</span>
+, <span class=numeros>
+78</span>
+, <span class=numeros>
+12</span>
+, <span class=numeros>
+81</span>
+, <span class=numeros>
+32</span>
+, <span class=numeros>
+27</span>
+, <span class=numeros>
+92</span>
+};</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; v2<span class=op>
+ = </span>
+<span class=instrucoes>
+novo</span>
+<span class=instrucoes>
+inteiro</span>
+[<span class=funcao>
+ tamanho</span>
+( v)];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+" ORIGINAL = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ imprime</span>
+( v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ copia</span>
+( v2,  v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=funcao>
+ bolha</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+" BOLHA = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ imprime</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"apos "</span>
+,  custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ copia</span>
+( v2,  v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=funcao>
+ selecao</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+" SELECAO = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ imprime</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"apos "</span>
+,  custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ copia</span>
+( v2,  v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=funcao>
+ insercao</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+" INSERCAO = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ imprime</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"apos "</span>
+,  custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ copia</span>
+( v2,  v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custo<span class=op>
+ = </span>
+ <span class=funcao>
+ mergesort</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"MERGESORT = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ imprime</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"apos "</span>
+,  custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ copia</span>
+( v2,  v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp; custoq<span class=op>
+ = </span>
+ <span class=numeros>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ quicksort</span>
+( v2, <span class=numeros>
+0</span>
+, <span class=funcao>
+ tamanho</span>
+( v2)<span class=op>
+ - </span>
+<span class=numeros>
+1</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"QUICKSORT = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=funcao>
+ imprime</span>
+( v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=instrucoes>
+escreva</span>
+(<span class=string>
+"apos "</span>
+,  custoq, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+<span class=instrucoes>
+fim</span>
+<br></span>
+<br></body>
+</html>
+

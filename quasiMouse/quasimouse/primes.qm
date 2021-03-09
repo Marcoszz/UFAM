@@ -1,0 +1,46 @@
+~~~~~~~~~~~~~~~~~~~~
+~ Prime Numbers
+~ Marco, 2020
+~~~~~~~~~~~~~~~~~~~~
+~ funcao R, retorna o resto de A e B
+$R, A,B;
+A. A. B. / B. * -
+@
+$P, A;
+1 F: ~ f = 1
+1 N: ~ n = 1 (flag 1=no divisor found)
+A. X: ~ x = first argument
+(
+~ F = F + 1
+F. 1 + F:
+~ break loop when F > A/2
+F. X. 2 / 1 + < [
+~ if A / F * F >= 0
+X. F. #R 0 =
+[
+~ set N = 0 and break out of loop
+0 N:
+0
+| 1
+]
+| 0 ~ F > A/2
+] ^
+)
+~ if N > 0 then print X
+N .
+[
+X. ! " "
+]
+~ return
+@
+"PRIME NUMBERS" &
+"2 "
+3 N:
+(
+N. #P ~ call P(N)
+N . 1001 < ^ ~ if N >= __ break
+N . 1 + N: ~ N++
+)
+&
+~ end of program
+$

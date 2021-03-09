@@ -1,0 +1,23 @@
+COMPILER Teste
+
+CHARACTERS
+    digito = "0123456789".
+    lMais = 'A'..'Z'.
+    lMinus = 'a'..'z'.
+    letra = lMais + lMinus.
+    Especial = "-'#!:".
+
+TOKENS
+    num = digito { digito }.
+    palavra = lMinus { letra | Especial }.
+    palavraM = lMais { lMinus | Especial }.
+
+
+IGNORE '\t'+ '\r'
+
+PRODUCTIONS
+    Teste = Correta { Correta } ".\n" { Correta } ".\n".
+    Correta = { palavraM } palavra.
+
+
+END Teste.

@@ -1,0 +1,19 @@
+~ #####################
+~ # Torre de Hanoi
+~ #####################
+$M, A,B;
+"Move " A.! " para " B.! &
+@
+$H, A,B,C,D;
+A. N:
+N. 1 = [ B. C. #M ~ then
+| N. 1 - N: ~ else
+N. B. D. C. #H
+B. C. #M
+N. D. C. B. #H
+]
+@
+( & "Quantos discos? " ? N: N. 0 > ^
+N. 1 2 3 #H
+)
+$

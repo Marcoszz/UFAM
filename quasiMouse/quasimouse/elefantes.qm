@@ -1,0 +1,23 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~
+~ A musica dos elefantes
+~ Marco, 2020
+~~~~~~~~~~~~~~~~~~~~~~~~~
+$I, A; A. 1 = [ " elefante incomoda"
+| " elefantes incomodam" ]
+@
+$M, A; 1 I: (I. A. < ^ "incomodam " I. 1+ I:) @
+$R, A;
+A. 1+ A:
+A. 1+ B:
+A.! " elefantes " B. #M "muito mais." &
+@
+$L, A; "Se " A.! A. #I " muita gente, " A. #R @
+"Quantos elefantes? " ? E:
+E. 5 > ["Isso eh muito elefante. Vou ateh 5." & 5 E:]
+E. 1 + E:
+1 I:
+( I. E. < ^
+I. #L
+I. 1+ I:
+)
+$

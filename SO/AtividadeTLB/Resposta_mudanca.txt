@@ -1,0 +1,13 @@
+Gráficamente, ao observar a média dos tempos em relação ao aumento do
+número de paginas nas diferentes situações, não é possível observar
+uma diferença muito grande.Porém, ao observar a distribuição da média de
+tempos em relação ao número de páginas, é observado um pequeno
+aumento ao forçar com que o programa rode sempre mesmo no core, ou
+seja, é possível concluir que a troca de cores é feita para agilizar o
+processo de acesso as páginas, mesmo que os diferentes cores possuam
+diferentes TLBs. Contudo a diferenção observada na distribuição dos
+tempos não chega a ser tão destacante, já que a diferença entre as
+médias é em cerca de 20%.
+   
+   
+ Alunos: Marcos Paulo de Carvalho Lopes, João Lucas Fernandes Melo

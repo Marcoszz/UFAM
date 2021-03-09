@@ -1,0 +1,23 @@
+COMPILER Musica
+
+CHARACTERS
+    digito = "0123456789".
+    lMais = 'A'..'Z'.
+    lMinus = 'a'..'z'.
+    letra = lMais + lMinus.
+    Especial = "-'#!:".
+
+TOKENS
+    num = digito { digito }.
+    palavra = lMinus { letra | Especial }.
+    palavraM = lMais { lMinus | Especial }.
+
+
+IGNORE '\t'+ '\r'
+
+PRODUCTIONS
+    Musica = Verso { Verso }.
+    Verso = palavraM { palavraM } "\n" palavraM { palavra | palavraM } "\n".
+
+
+END Musica.

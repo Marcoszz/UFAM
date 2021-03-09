@@ -1,0 +1,462 @@
+import java.io.*;
+
+class HtmlOut{
+    String output;
+    int indent = 0;
+
+    public HtmlOut(){
+        output = "<html>\n";
+        output += "<head><title>Trabalho 1 de compiladores</title>\n";
+        output += "<link rel="+"stylesheet href="+"styles.css"+ ">";
+        output += "</head>";
+        output += "<body>\n";
+    }
+
+    public void addIdent(){
+        indent += 1;
+    }
+
+    public void decreaseIdent(){
+        indent -= 1;
+    }
+
+    public void addFirstLine(String str){
+        output += "<span>\n";
+        output += str + "\n";
+        output += "</span>\n";
+        output += "<br>\n";
+        output += "<br>\n";
+    }
+
+    public void addComment(String str){
+        output += "<span class=" + "comments" + ">\n";
+        output += str + " " + "\n";
+        output += "</span>\n";
+        output += "<br>\n";
+        output += "<br>\n";
+    }
+
+    public String formatReserved(String str){
+        String ret = "<span class=" + "instrucoes" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatOpRel(String str){
+        String ret = "<span class=" + "op" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatOpAri(String str){
+        String ret = "<span class=" + "op" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatFuncName(String str){
+        String ret = "<span class=" + "funcao" +">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatVarName(String str){
+        String ret = "<span class=" + "definidos" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatConstName(String str){
+        String ret = "<span class=" + "constante" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatNumber(String str){
+        String ret = "<span class=" + "numeros" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatType(String str){
+        String ret = "<span class=" + "tipos" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public String formatString(String str){
+        String ret = "<span class=" + "string" + ">\n";
+        ret += str + "</span>\n";
+        return ret;
+    }
+
+    public void addLine(String str){
+        output += "<span>\n";
+        for(int i =0; i < indent; i++){
+            output += "&nbsp;&nbsp;&nbsp;&nbsp;";
+        }
+        output += str;
+        output += "</span>\n";
+        output += "<br>";
+    }
+
+    public void show(){
+        output += "</body>\n";
+        output += "</html>\n";
+        System.out.println(output);
+    }
+}
+
+COMPILER Uportugol
+HtmlOut html;
+CHARACTERS
+    digito = "0123456789".
+    letra = 'A'..'Z'+'a'..'z'.
+    semAspas = ANY - '"'.
+
+TOKENS
+    numero = digito {digito}.
+    ident = letra {letra | digito}.
+    strConst = '"'{semAspas}'"'.
+
+IGNORE '\r' + '\t' + '\n'
+
+PRODUCTIONS
+
+    Uportugol                           (. html = new HtmlOut(); String str = ""; .)
+        =
+            
+        [Comments]
+        "algoritmo"                     (. str = html.formatReserved("algoritmo"); str += " "; .)
+        ident                           (. str += t.val; html.addFirstLine(str); .)                         
+        { FunDecl              
+            | VarDecl     
+            | ConstDecl
+            |Comments
+        }
+        "inicio"                    (. str = html.formatReserved("inicio"); html.addLine(str); html.addIdent(); .)
+        { 
+            Cmd                       
+            | VarDecl
+            | ConstDecl
+            |Comments
+        } 
+        "fim"                       (.html.decreaseIdent(); str = html.formatReserved("fim"); str+="<br>"; html.addLine(str); html.show(); .)
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    FunDecl                             (.String funcDecl = "", funcContent = "", type = "", str = ""; .)
+        = 
+        "procedimento"                  (. funcDecl = html.formatReserved("procedimento"); funcDecl += " "; .)
+        ident                           (. funcDecl += html.formatFuncName(t.val); .)
+        "("                             (. funcDecl += "("; funcDecl += " "; .)
+            {
+                (
+                    ident               (. funcDecl += html.formatVarName(t.val); .)
+                    ":"                 (. funcDecl += ":"; .)
+                    Tipo<out type>      (. funcDecl += type; .)
+                    | 
+                    ","                 (. funcDecl += ","; funcDecl += " "; .)
+                    ident               (. funcDecl += html.formatVarName(t.val); .)
+                    ":"                 (. funcDecl += ":"; .) 
+                    Tipo<out type>      (. funcDecl += type; .)
+                    )
+                } 
+            ")"                         (. funcDecl += ")"; .)    
+            [
+                ":"                     (. funcDecl += ":"; funcDecl += " "; .) 
+                Tipo<out type>          (. funcDecl += type; .)
+                ]                       (. html.addLine(funcDecl); .) 
+            "inicio"                    (. funcContent = html.formatReserved("inicio"); html.addLine(funcContent); html.addIdent();.) 
+            { 
+                Cmd                      
+                | VarDecl 
+                | ConstDecl
+                |Comments 
+            } 
+            "fim"                       (. html.decreaseIdent(); str = html.formatReserved("fim") + "<br>"; html.addLine(str); .) 
+            .
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    ConstDecl                           (. String constDleca = "";.) 
+        = 
+        "constante"                     (. constDleca = html.formatConstName("constante"); constDleca +=" "; .)
+        ident                           (. constDleca += t.val; constDleca +=" "; .)
+        "="                             (. constDleca += html.formatOpRel("="); constDleca +=" "; .)
+        numero                          (. constDleca += html.formatNumber(t.val); .)
+        ";"                             (. constDleca += ";<br>"; html.addLine(constDleca) ;.)
+        .                            
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    VarDecl                             (. String varDleca = "", type = "";.)
+        =
+        "variavel"                      (. varDleca = html.formatReserved("variavel"); varDleca +=" "; .)
+        ident                           (. varDleca += html.formatVarName(t.val); .)
+        {","                            (. varDleca += ","; varDleca +=" "; .)
+        ident                           (. varDleca += html.formatVarName(t.val); .)
+        } 
+        ":"                             (. varDleca += ":"; varDleca +=" "; .)
+        Tipo<out type>                  (. varDleca += type; .)
+        ";"                             (. varDleca += ";"; html.addLine(varDleca) ;.)
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    Tipo <out String type>              (. type = "";.)
+        = 
+        "inteiro"                       (. type = html.formatType("inteiro");.)
+        | "inteiro[]"                   (. type = html.formatType("inteiro[]");.)
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    Identificador<out String identfier> (. identfier = ""; String exp1 = "", exp2 = "", exp3 = ""; .)
+        = 
+        ident                           (. identfier = " " + t.val ; .)
+        [
+            (
+                "["                     (. identfier = identfier; identfier += "["; .)
+                AriExpr<out exp1>          (. identfier += exp1; .)
+                "]"                     (. identfier += "]"; .)
+                | 
+                "("                     (. identfier = html.formatFuncName(identfier); identfier += "("; .)
+                AriExpr<out exp2>       (. identfier += exp2; .) 
+                {
+                    ","                 (. identfier += ","; identfier += " "; .)
+                    AriExpr<out exp3>   (. identfier += exp3; .)
+                }
+                ")"                     (. identfier += ")"; .)
+            )
+        ]
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    Cmd                                                 (. String identfier = "", identfier2 = "", exp1 = "", str = ""; .)
+        = 
+        Identificador<out identfier>                    (.identfier = identfier;.)                    
+            [
+                "="                                     (. identfier += html.formatOpRel(" = "); .) 
+                (
+                    Expr<out exp1>                      (. identfier += exp1; .)
+                    | 
+                    "novo"                              (. identfier += html.formatReserved("novo");.)
+                    "inteiro"                           (. identfier += html.formatReserved("inteiro");.)
+                    (
+                        "["                             (. identfier += "[";.)
+                        Identificador<out identfier2>   (. identfier += identfier2;.)
+                        "]"                             (. identfier += "]";.) 
+                        | 
+                        "{"                             (. identfier += "{";.)
+                        numero                          (. identfier += html.formatNumber(t.val);.) 
+                        {
+                            ","                         (. identfier += ","; identfier += " ";.)  
+                            numero                      (. identfier += html.formatNumber(t.val);.)
+                        } 
+                        "}"                             (. identfier += "}";.)
+                    )
+                )
+            ] ";"                                       (.identfier += t.val; html.addLine(identfier); .)
+            |   
+                "retorne"                               (.str = html.formatReserved("retorne"); exp1 = ""; .) 
+                [
+                    Expr<out exp1>                      (. str += exp1; .)
+                ]
+                ";"                                     (. str += ";"; html.addLine(str); .)
+            |	
+                "escreva("                              (. str = html.formatReserved("escreva") + "("; .)                             
+                (
+                    strConst                            (. str += html.formatString(t.val); .) 
+                    |
+                    Identificador<out identfier>        (. str += identfier; .) 
+                ) 
+                {
+                    ","                                 (. str += ","; str += " "; .) 
+                    (
+                        Identificador<out identfier2>   (. str += identfier2; .)
+                        | 
+                        strConst                        (. str += html.formatString(t.val); .) 
+                    )
+                }
+                ")"                                     (. str += ")"; .) 
+                ";"                                     (. str += ";"; html.addLine(str); .)
+            |	
+                "caso"                                  (. str = html.formatReserved("caso"); String identfier1 = ""; .)
+                Identificador<out identfier1>           (. str += identfier1;html.addLine(str); html.addIdent();.)
+                "seja"                                  (. str = html.formatReserved("seja"); .)
+                numero                                  (. str += html.formatNumber(t.val); .)
+                "faca"                                  (. str += html.formatReserved("faca"); html.addLine(str); html.addIdent(); .) 
+                {
+                    Cmd
+                } 
+                {
+                    "seja"                              (. str = html.formatReserved("seja"); html.decreaseIdent(); .)
+                    numero                              (. str += html.formatNumber(t.val); .)
+                    "faca"                              (. str += html.formatReserved("faca"); html.addLine(str); html.addIdent(); .) 
+                    {
+                        Cmd
+                    } 
+                } 
+                "outrocaso:"                            (. str = html.formatReserved("outrocaso:"); html.decreaseIdent(); html.addLine(str); html.addIdent();.) 
+                {
+                    Cmd
+                } 
+                "fimcaso"                               (. str = html.formatReserved("fimcaso:"); html.decreaseIdent(); html.decreaseIdent(); html.addLine(str);.) 
+                [
+                    ";"                                 (. str += ";"; .)
+                ]                                       (. html.addLine(str); .)
+            |	
+                "se"                                    (. str = html.formatReserved("se"); exp1 = ""; .)
+                Expr<out exp1>                          (. str += exp1; .)
+                "entao"                                 (. str +=  html.formatReserved("entao"); html.addLine(str); html.addIdent(); .)
+                {
+                    Cmd
+                } 
+                [
+                    "senao"                             (. str =  html.formatReserved(" senao "); html.addLine(str); html.addIdent(); .)
+                    {
+                        Cmd
+                    }
+                                                        (.html.decreaseIdent();.)
+                ] 
+                "fimse"                                 (. str =  html.formatReserved(" fimse "); html.decreaseIdent(); .)
+                [
+                    ";"                                 (. str += ";"; .) 
+                ]                                       (. html.addLine(str); .)
+            |	
+                "enquanto"                              (. str = html.formatReserved(" enquanto "); exp1 = ""; .)
+                Expr<out exp1>                          (. str += exp1; .)
+                "faca"                                  (. str +=  html.formatReserved(" faca "); html.addLine(str); html.addIdent(); .)
+                {
+                    Cmd
+                } 
+                "fimenquanto"                           (. str =  html.formatReserved(" fimenquanto "); html.decreaseIdent(); .)
+                [
+                    ";"                                 (. str += ";"; .) 
+                ]                                       (. html.addLine(str); .)
+            |	
+                "para"                                  (. str = html.formatReserved(" para "); exp1 = ""; String exp2 = "", exp3 = ""; .) 
+                Expr<out exp1>                          (. str += exp1; .)  
+                "="                                     (. str += html.formatOpRel(" = "); .) 
+                Expr<out exp2>                          (. str += exp2; .)
+                "ate"                                   (. str += " ate "; .)
+                Expr<out exp3>                          (. str += exp3; .)
+                [
+                    "passo"                             (. str += html.formatReserved(" passo "); .)  
+                    numero                              (. str += html.formatNumber(t.val); .)
+                ] 
+                "faca"                                  (. str += html.formatReserved(" faca "); html.addLine(str); html.addIdent();.) 
+                {
+                    Cmd
+                } 
+                "fimpara"                               (. str =  html.formatReserved(" fimpara"); html.decreaseIdent(); .)
+                [
+                    ";"                                 (. str += ";"; .) 
+                ]                                       (. html.addLine(str); .)
+            |	
+                "repita"                                (. str = html.formatReserved(" repita "); exp1 = ""; html.addLine(str); html.addIdent(); .)
+                {
+                    Cmd
+                } 
+                "ate"                                   (. str = html.formatReserved("ate"); html.decreaseIdent(); .)  
+                Expr<out exp1>                          (. str += exp1; .)  
+                ";"                                     (. str += ";"; html.addLine(str); .)
+            .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    Comments 
+    =                           (. String str = ""; .) 
+    "/*"                        (. str = "/*"; .)
+    {
+        ident                   (. str += t.val; .)
+        |
+        "*"                     (. str += t.val; .)
+        |
+        ","                     (. str += t.val; str += " "; .)
+        (                     
+        ident                   (. str += t.val; .)
+        | 
+        numero                  (. str += t.val; .) 
+        ) 
+    }                   
+    "*/"                        (. str += "*/"; html.addComment(str); .)
+    .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    Expr<out String condi>   (. condi = ""; String exp1 = "", exp2 = "", op = "";.)	
+        =	
+        AriExpr<out exp1>    (. condi = " " + exp1;.)	
+        [
+            RelOp<out op>    (. condi += " " + op; .)
+            AriExpr<out exp2>(. condi += " " + exp2 + " "; .)
+        ]
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    AriExpr<out String exp1> (. String term = "",term2 = "";.)		
+        =	
+        Term<out term>       (. exp1 = term;.)
+        {
+            (
+                "+"          (. exp1 += html.formatOpAri(" + ");.)
+                |
+                "-"          (. exp1 += html.formatOpAri(" - ");.)
+            ) 
+            Term<out term2>  (. exp1 += term2;.)
+        }
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    Term<out String term>    (. term = ""; String fat = "", fat2 = "";.)
+        =	
+        Fator<out fat>       (. term = fat;.)		
+        {
+            (
+                "*"          (. term += html.formatOpAri(" * ");.)
+                |
+                "/"          (. term += html.formatOpAri(" / ");.)
+                |
+                "%"          (. term += html.formatOpAri(" % ");.)
+            ) 
+            Fator<out fat2>  (. term += fat2;.)
+        }
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    Fator<out String fat>                   (. fat = ""; String fat2 = "", identfier = "", exp1 = "";.)
+        =	
+        Identificador<out identfier>        (. fat = identfier;.)
+        | 
+        numero                              (. fat = html.formatNumber(t.val);.)
+        | 
+        "-"                                 (. fat = html.formatOpAri(" - ");.) 
+        Fator<out fat2>                     (. fat += fat2;.) 
+        | 
+        "("                                 (. fat = "(";.) 
+        Expr<out exp1>                      (. fat += " " + exp1;.) 
+        ")"                                 (. fat += ")";.)
+        .
+
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    RelOp<out String op>                    (.op = "";.)	
+        =	
+        "=="                                (. op = html.formatOpRel("==");.) 
+        | 
+        "<"                                 (. op = html.formatOpRel("<");.) 
+        | 
+        ">"                                 (. op = html.formatOpRel(">");.) 
+        | 
+        "<="                                (. op = html.formatOpRel("<=");.)
+        | 
+        ">="                                (. op = html.formatOpRel(">=");.)
+        .
+
+END Uportugol.

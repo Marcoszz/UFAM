@@ -1,0 +1,28 @@
+.comentarios {
+    color: gray;
+    font-style: italic;
+}
+
+.string {
+    color: rgb(255, 174, 0);
+    font-weight: bold;
+}
+
+.type {
+    color: rgb(125, 204, 89);
+    font-weight: bold;
+}
+
+.pragmas {
+    color: rgb(8, 8, 0);
+}
+
+.constantes {
+    color: rgba(183, 0, 255, 0.438);
+    font-weight: bold;
+}
+
+.reservedWord {
+    color: black;
+    font-weight: bold;
+}

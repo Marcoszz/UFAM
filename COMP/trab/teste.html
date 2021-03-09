@@ -1,0 +1,1553 @@
+<html>
+<head><title>Trabalho 1 de compiladores</title></head>
+<body>
+<span>
+<span class=reservedWord>
+algoritmo</span>
+ ComparacaoDeAlgoritmosOrdenacao 
+</span>
+<br>
+<br>
+<span>
+<span class=reservedWord>
+constante</span>
+ <span class=functionName>
+TAM</span>
+ = <span class=number>
+10</span>
+;<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+imprime</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+)</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+i</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ para </span>
+ i =  <span class=number>
+0</span>
+ ate  <span class=functionName>
+tamanho</span>
+(v) - <span class=number>
+1</span>
+<span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=varName>
+v</span>
+[i], <span class=string>
+" "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimpara</span>
+;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+copia</span>
+( <span class=varName>
+v1</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+v2</span>
+:<span class=type>
+inteiro[]</span>
+)</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+i</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ para </span>
+ i =  <span class=number>
+0</span>
+ ate  (  <span class=functionName>
+tamanho</span>
+(v1) - <span class=number>
+1</span>
+)<span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+v1</span>
+[i] =  <span class=varName>
+v2</span>
+[i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimpara</span>
+;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+troque</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+i</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+j</span>
+:<span class=type>
+inteiro</span>
+)</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+tmp</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;tmp =  <span class=varName>
+v</span>
+[i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+v</span>
+[i] =  <span class=varName>
+v</span>
+[j];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+v</span>
+[j] =  tmp;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+bolha</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+custo</span>
+, <span class=varName>
+i</span>
+, <span class=varName>
+troca</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;troca =  <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ troca == <span class=number>
+1</span>
+ <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;troca =  <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ para </span>
+ i =  <span class=number>
+0</span>
+ ate  <span class=functionName>
+tamanho</span>
+(v) - <span class=number>
+2</span>
+<span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  custo + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ <span class=varName>
+v</span>
+[i] > <span class=varName>
+v</span>
+[i + <span class=number>
+1</span>
+] <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+troque</span>
+(v, i, i + <span class=number>
+1</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;troca =  <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ custo;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+minpos</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+i</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+f</span>
+:<span class=type>
+inteiro</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+j</span>
+, <span class=varName>
+min</span>
+, <span class=varName>
+minj</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;min =  <span class=varName>
+v</span>
+[i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;minj =  i;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ para </span>
+ j =  i + <span class=number>
+1</span>
+ ate  f - <span class=number>
+1</span>
+<span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ <span class=varName>
+v</span>
+[j] < min <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min =  <span class=varName>
+v</span>
+[j];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minj =  j;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ minj;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+selecao</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+i</span>
+, <span class=varName>
+minp</span>
+, <span class=varName>
+custo</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ para </span>
+ i =  <span class=number>
+0</span>
+ ate  <span class=functionName>
+tamanho</span>
+(v) - <span class=number>
+2</span>
+<span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  custo + <span class=functionName>
+tamanho</span>
+(v) - i - <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minp =  <span class=functionName>
+minpos</span>
+(v, i + <span class=number>
+1</span>
+, <span class=functionName>
+tamanho</span>
+(v));</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ <span class=varName>
+v</span>
+[i] > <span class=varName>
+v</span>
+[minp] <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+troque</span>
+(v, i, minp);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ custo;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+jMaior0EauxMenorVjmenos1</span>
+( <span class=varName>
+j</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+aux</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ j > <span class=number>
+0</span>
+ <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ aux < <span class=varName>
+v</span>
+[j - <span class=number>
+1</span>
+] <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ <span class=number>
+0</span>
+;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+insercao</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+i</span>
+, <span class=varName>
+j</span>
+, <span class=varName>
+custo</span>
+, <span class=varName>
+aux</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ para </span>
+ i =  <span class=number>
+1</span>
+ ate  <span class=functionName>
+tamanho</span>
+(v) - <span class=number>
+1</span>
+<span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aux =  <span class=varName>
+v</span>
+[i];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j =  i;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ <span class=functionName>
+jMaior0EauxMenorVjmenos1</span>
+(j, aux, v) == <span class=number>
+1</span>
+ <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  custo + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+v</span>
+[j] =  <span class=varName>
+v</span>
+[j - <span class=number>
+1</span>
+];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j =  j - <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+v</span>
+[j] =  aux;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ custo;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+esqMEfimEsqEmeioMEdir</span>
+( <span class=varName>
+esq</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+fimEsq</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+meio</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+dir</span>
+:<span class=type>
+inteiro</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ esq <= fimEsq <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ meio <= dir <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ <span class=number>
+0</span>
+;</span>
+<br><span>
+<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+merge</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+tmp</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+esq</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+meio</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+dir</span>
+:<span class=type>
+inteiro</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+i</span>
+, <span class=varName>
+fimEsq</span>
+, <span class=varName>
+tam</span>
+, <span class=varName>
+k</span>
+, <span class=varName>
+custo</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;fimEsq =  meio - <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;k =  esq;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;tam =  dir - esq + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ <span class=functionName>
+esqMEfimEsqEmeioMEdir</span>
+(esq, fimEsq, meio, dir) == <span class=number>
+1</span>
+ <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  custo + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ <span class=varName>
+v</span>
+[esq] <= <span class=varName>
+v</span>
+[meio] <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+tmp</span>
+[k] =  <span class=varName>
+v</span>
+[esq];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;esq =  esq + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ senao </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+tmp</span>
+[k] =  <span class=varName>
+v</span>
+[meio];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meio =  meio + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k =  k + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ esq <= fimEsq <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+tmp</span>
+[k] =  <span class=varName>
+v</span>
+[esq];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;esq =  esq + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k =  k + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  custo + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ meio <= dir <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+tmp</span>
+[k] =  <span class=varName>
+v</span>
+[meio];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meio =  meio + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k =  k + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  custo + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ para </span>
+ i =  <span class=number>
+0</span>
+ ate  tam - <span class=number>
+1</span>
+<span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=varName>
+v</span>
+[dir] =  <span class=varName>
+tmp</span>
+[dir];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dir =  dir - <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimpara</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ custo + <span class=number>
+3</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+msort</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+tmp</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+esq</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+dir</span>
+:<span class=type>
+inteiro</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+meio</span>
+, <span class=varName>
+custo</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ dir > esq <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meio =  (  dir + esq) / <span class=number>
+2</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+msort</span>
+(v, tmp, esq, meio);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+msort</span>
+(v, tmp, meio + <span class=number>
+1</span>
+, dir);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  custo + <span class=functionName>
+merge</span>
+(v, tmp, esq, meio + <span class=number>
+1</span>
+, dir);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ custo;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+mergesort</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+tmp</span>
+: <span class=type>
+inteiro[]</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmp = <span class=reservedWord>
+novo</span>
+<span class=reservedWord>
+inteiro</span>
+[<span class=functionName>
+tamanho</span>
+(v)];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ <span class=functionName>
+msort</span>
+(v, tmp, <span class=number>
+0</span>
+, <span class=functionName>
+tamanho</span>
+(v) - <span class=number>
+1</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+custoq</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+iMenorFimEviMenorPivo</span>
+( <span class=varName>
+i</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+vfim</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+pivo</span>
+:<span class=type>
+inteiro</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ i < vfim <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ <span class=varName>
+v</span>
+[i] < pivo <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+particione</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+ini</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+vfim</span>
+:<span class=type>
+inteiro</span>
+): <span class=type>
+inteiro</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+i</span>
+, <span class=varName>
+j</span>
+, <span class=varName>
+pivo</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i =  ini + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j =  vfim;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pivo =  <span class=varName>
+v</span>
+[ini];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ i <= j <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ <span class=functionName>
+iMenorFimEviMenorPivo</span>
+(i, vfim, v, pivo) == <span class=number>
+1</span>
+ <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i =  i + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custoq =  custoq + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ enquanto </span>
+ <span class=varName>
+v</span>
+[j] > pivo <span class=reservedWord>
+ faca </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j =  j - <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custoq =  custoq + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custoq =  custoq + <span class=number>
+2</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ i < j <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+troque</span>
+(v, i, j);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i =  i + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j =  j - <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ senao </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i =  i + <span class=number>
+1</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimenquanto </span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+troque</span>
+(v, j, ini);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+ j;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+procedimento</span>
+ <span class=functionName>
+quicksort</span>
+( <span class=varName>
+v</span>
+:<span class=type>
+inteiro[]</span>
+, <span class=varName>
+ini</span>
+:<span class=type>
+inteiro</span>
+, <span class=varName>
+vfim</span>
+:<span class=type>
+inteiro</span>
+)</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ (  vfim - ini) < <span class=number>
+1</span>
+ <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+retorne</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+p</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p =  <span class=functionName>
+particione</span>
+(v, ini, vfim);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ ini < (  p - <span class=number>
+1</span>
+) <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+quicksort</span>
+(v, ini, p - <span class=number>
+1</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+se</span>
+ vfim > (  p + <span class=number>
+1</span>
+) <span class=reservedWord>
+entao</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+quicksort</span>
+(v, p + <span class=number>
+1</span>
+, vfim);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+ fimse </span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+fim</span>
+<br></span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+inicio</span>
+</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+custo</span>
+, <span class=varName>
+i</span>
+: <span class=type>
+inteiro</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+variavel</span>
+ <span class=varName>
+v</span>
+, <span class=varName>
+v2</span>
+: <span class=type>
+inteiro[]</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v = <span class=reservedWord>
+novo</span>
+<span class=reservedWord>
+inteiro</span>
+{<span class=number>
+61</span>
+, <span class=number>
+57</span>
+, <span class=number>
+72</span>
+, <span class=number>
+18</span>
+, <span class=number>
+8</span>
+, <span class=number>
+30</span>
+, <span class=number>
+21</span>
+, <span class=number>
+93</span>
+, <span class=number>
+67</span>
+, <span class=number>
+15</span>
+, <span class=number>
+78</span>
+, <span class=number>
+12</span>
+, <span class=number>
+81</span>
+, <span class=number>
+32</span>
+, <span class=number>
+27</span>
+, <span class=number>
+92</span>
+};</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v2 = <span class=reservedWord>
+novo</span>
+<span class=reservedWord>
+inteiro</span>
+[<span class=functionName>
+tamanho</span>
+(v)];</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+" ORIGINAL = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+imprime</span>
+(v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+copia</span>
+(v2, v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=functionName>
+bolha</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+" BOLHA = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+imprime</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"apos "</span>
+, custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+copia</span>
+(v2, v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=functionName>
+selecao</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+" SELECAO = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+imprime</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"apos "</span>
+, custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+copia</span>
+(v2, v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=functionName>
+insercao</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+" INSERCAO = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+imprime</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"apos "</span>
+, custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+copia</span>
+(v2, v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custo =  <span class=functionName>
+mergesort</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"MERGESORT = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+imprime</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"apos "</span>
+, custo, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+copia</span>
+(v2, v);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custoq =  <span class=number>
+0</span>
+;</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+quicksort</span>
+(v2, <span class=number>
+0</span>
+, <span class=functionName>
+tamanho</span>
+(v2) - <span class=number>
+1</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"QUICKSORT = "</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=functionName>
+imprime</span>
+(v2);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+escreva</span>
+(<span class=string>
+"apos "</span>
+, custoq, <span class=string>
+" comparacoes\n"</span>
+);</span>
+<br><span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=reservedWord>
+fim</span>
+<br></span>
+<br></body>
+</html>
+
